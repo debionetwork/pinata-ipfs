@@ -1,0 +1,18 @@
+{
+    "moduleFileExtensions": ["js", "json", "ts"],
+    "rootDir": ".",
+    "testEnvironment": "node",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "moduleNameMapper": {
+      "form-data": "<rootDir>/form-data.mock.ts",
+      "axios": "<rootDir>/axios.mock.ts"
+    },
+    "coverageDirectory": "../coverage"
+  }
+  
