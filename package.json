@@ -6,6 +6,7 @@
   "types": "lib/index.d.ts",
   "files": ["lib/**/*"],
   "scripts": {
+    "install:hooks": ".maintain/install-hooks.sh",
     "build": "tsc",
     "check": "npm run test && npm run format && npm run lint && npm run build",
     "format": "prettier --write \"src/**/*.ts\"",
