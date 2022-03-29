@@ -1,7 +1,8 @@
 import axios from "axios";
-import { uploadFile } from "../../src";
+import { uploadFile, downloadJson } from "../../src";
 import { baseUrl, pinFileToIpfsEndpoint } from "../../src/baseConfig";
 import NodeFormData from "./form-data.mock";
+import fetchMock from 'fetch-mock';
 
 describe('Pinata IPFS Upload File', () => {
   const ENDPOINT = `${baseUrl}${pinFileToIpfsEndpoint}`;
@@ -127,5 +128,19 @@ describe('Pinata IPFS Upload File', () => {
           }
         }
       );
+  });
+
+  it('downloadJson should return', async () => {
+      // Arrange
+      const IPFS_URL = 'IPFS_URL';
+      const EXPECTED_RESULT = { data: 'EXPECTED_RESULT' };
+
+      fetchMock.get(IPFS_URL, EXPECTED_RESULT);
+
+      // Act
+      const RES = await downloadJson(IPFS_URL);
+
+      // Assert
+      expect(RES).toEqual(EXPECTED_RESULT);
   });
 });
