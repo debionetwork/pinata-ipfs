@@ -1,3 +1,4 @@
+import 'isomorphic-fetch';
 import axios from 'axios';
 import NodeFormData from 'form-data';
 import { baseUrl, pinFileToIpfsEndpoint } from './baseConfig';
@@ -37,3 +38,17 @@ export function uploadFile(pinataApiOptions: any, file: Blob, jwt: string) {
       .catch((error) => reject(error));
   });
 }
+
+export async function downloadJson(ipfsLink: string): Promise<any> {
+  const response = await fetch(ipfsLink);
+  return await response.json();
+}
+
+export const downloadDocumentFileInBrowser = (data: any, fileName: string, type: string) => {
+  const blob = new Blob([data], { type });
+  const a = document.createElement('a');
+
+  a.download = fileName;
+  a.href = window.URL.createObjectURL(blob);
+  a.dataset.downloadurl = ['text/json', a.download, a.href].join(':');
+};
