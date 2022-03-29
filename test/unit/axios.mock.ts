@@ -1,3 +1,10 @@
 export = {
-    post: jest.fn(),
+  CancelToken: {
+    source: jest.fn(() => {
+      return {
+        token: 'TOKEN',
+      };
+    }),
+  },
+  post: jest.fn(),
 };
