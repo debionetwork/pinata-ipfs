@@ -52,7 +52,9 @@ export function uploadFile(
 
 export async function downloadJson(ipfsLink, withMetaData = false, pinataJwtKey = null): Promise<any> {
   const cid = ipfsLink.split('/').pop();
-  const response = await fetch(ipfsLink);
+  const response = await fetch(
+    new URL(ipfsLink).toString()
+  );
   const data = await response.json();
   let metadata;
 
