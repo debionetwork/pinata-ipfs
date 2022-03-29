@@ -140,7 +140,7 @@ describe('Pinata IPFS Unit Tests', () => {
 
     it('downloadJson should return', async () => {
       // Arrange
-      const IPFS_URL = 'IPFS_URL';
+      const IPFS_URL = PinataUrlBuilder.dataPinList;
       const EXPECTED_RESULT = { result: 'EXPECTED_RESULT' };
 
       fetchMock.get(IPFS_URL, EXPECTED_RESULT);
@@ -158,7 +158,7 @@ describe('Pinata IPFS Unit Tests', () => {
       // Arrange
       const CID = 'CID';
       const JWT = 'JWT';
-      const IPFS_URL = `IPFS_URL/${CID}`;
+      const IPFS_URL = `${PinataUrlBuilder.dataPinList}/${CID}`;
       const METADATA_RESULT = {
         rows: [
           {
@@ -190,7 +190,7 @@ describe('Pinata IPFS Unit Tests', () => {
 
     it('downloadJson should throw parameter error', async () => {
       // Arrange
-      const IPFS_URL = 'IPFS_URL';
+      const IPFS_URL = PinataUrlBuilder.dataPinList;
       const EXPECTED_ERROR = 'pinataJwtKey parameter is required if withMetadata is set to true';
 
       // Act
