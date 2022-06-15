@@ -89,5 +89,5 @@ export const downloadDocumentFileInBrowser = (data: any, fileName: string, type:
   a.download = fileName;
   a.href = window.URL.createObjectURL(blob);
   a.dataset.downloadurl = ['text/json', a.download, a.href].join(':');
-  a.click()
+  a.click();
 };
