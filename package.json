@@ -31,7 +31,7 @@
     "typescript"
   ],
   "author": "Agustinus Theodorus <agustinustheoo@gmail.com>",
-  "license": "ISC",
+  "license": "AGPL-3.0",
   "devDependencies": {
     "@types/jest": "^26.0.24",
     "fetch-mock": "^9.11.0",
